@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="m06.Libro" table="libros" catalog="m06">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+
+        <property name="titulo" type="string">
+            <column name="titulo" length="150" not-null="true" />
+        </property>
+
+        <property name="autor" type="string">
+            <column name="autor" length="200" not-null="true" />
+        </property>
+
+        <property name="añoPublicacion" type="int">
+            <column name="año_publicacion" not-null="true" />
+        </property>
+
+        <property name="disponible" type="boolean">
+            <column name="disponible" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

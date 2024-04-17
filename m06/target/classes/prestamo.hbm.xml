@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="m06.Prestamo" table="prestamo" catalog="m06">
+        <id name="prestamoId" type="java.lang.Long">
+            <column name="prestamo_id" />
+            <generator class="identity" />
+        </id>
+
+        <many-to-one name="libro" class="m06.Libro" fetch="join">
+            <column name="libro_id" not-null="true" />
+        </many-to-one>
+
+        <many-to-one name="lector" class="m06.Lector" fetch="join">
+            <column name="lector_id" not-null="true" />
+        </many-to-one>
+
+        <property name="fechaPrestamo" type="java.time.LocalDate">
+            <column name="fecha_prestamo" />
+        </property>
+
+        <property name="fechaDevolucion" type="java.time.LocalDate">
+            <column name="fecha_devolucion" />
+        </property>
+    </class>
+</hibernate-mapping>
